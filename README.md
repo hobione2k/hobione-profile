@@ -1,3 +1,3 @@
-# Hobione Profile Site
+# Hobione Profile Page
 
 https://hobione2k.github.io/hobione-profile/
