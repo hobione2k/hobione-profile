@@ -1,0 +1,180 @@
+:root {
+  --card: rgba(255, 255, 255, 0.6);
+  --text: #214762;
+  --muted: #3B607A;
+  --accent: #4aa8d8;
+  --border: rgba(255, 255, 255, 0.7);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #8fd3ec 0%, #b3e3f2 45%, #e4f6fb 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+  padding: 24px;
+  position: relative;
+}
+
+/* 画像レイヤー: 先に彩度を下げてブラーをかける */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("../images/IMG_20260418_111719S.jpg") center / cover no-repeat;
+  filter: grayscale(0.9) contrast(200%) blur(8px);
+  transform: scale(1.2);
+}
+
+/* 色レイヤー: その上から背景色のグラデーションを混合 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #AAE7FEE6 10%, #B3E3F2E6 50%, rgba(228, 246, 251, 1.0) 100%);
+}
+
+.profile {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.icon {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #6fc5e6, #4aa8d8);
+  box-shadow: 0 10px 30px rgba(74, 168, 216, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  overflow: hidden;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.0);
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.handle {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 4px 0 28px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(74, 168, 216, 0.15);
+  transition: border-color .15s ease, transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.links a:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(74, 168, 216, 0.28);
+}
+
+footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mascot {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 10;
+  filter: drop-shadow(0 6px 12px rgba(74, 168, 216, 0.3));
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mascot:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+@media (max-width: 720px) {
+  .mascot {
+    width: 80px;
+    height: 80px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* 説明文付きリンク (tools.html) */
+.links--desc a {
+  flex-direction: column;
+  gap: 4px;
+}
+
+.links a .desc {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--accent);
+}
