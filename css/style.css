@@ -17,7 +17,7 @@ body {
   background: linear-gradient(180deg, #8fd3ec 0%, #b3e3f2 45%, #e4f6fb 100%);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
-  padding: 24px;
+  padding: 24px 24px 96px;
   position: relative;
 }
 
@@ -152,6 +152,43 @@ footer {
     height: 80px;
     right: 16px;
     bottom: 16px;
+  }
+}
+
+/* スマホ: アイコンや文言を縮小して画面内に収める */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 16px 64px;
+  }
+
+  .icon {
+    width: 112px;
+    height: 112px;
+    margin-bottom: 14px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .handle {
+    font-size: 13px;
+    margin: 2px 0 12px;
+  }
+
+  .description {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+  }
+
+  .links {
+    gap: 8px;
+  }
+
+  .links a {
+    padding: 11px 16px;
+    font-size: 15px;
   }
 }
 
